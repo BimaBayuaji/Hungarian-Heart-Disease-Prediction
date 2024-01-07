@@ -209,35 +209,27 @@ st.write("")
 
 
 # Predictions for all models
-if st.button("Predict Decision Tree"):
-    inputs = [[age, sex, cp, trestbps, restecg, thalach, exang, oldpeak, slope]]
+if st.button("Predict all model"):
+    #Decision Tree
+    inputs = inputs = [[age, sex, cp, trestbps, restecg, thalach, exang, oldpeak, slope]]
     dt_prediction = model.predict(inputs)[0]
     dt_result = get_result(dt_prediction)
     st.subheader("Decision Tree Prediction:")
     st.write(dt_result)
     st.write(f"Decision Tree Accuracy: {max_accuracy}%")
-
-# Prediksi untuk model Random Forest
-if st.button("Predict Random Forest"):
-    inputs = [[age, sex, cp, trestbps, restecg, thalach, exang, oldpeak, slope]]
+    #Random Forest
     rf_prediction = rf_model.predict(inputs)[0]
     rf_result = get_result(rf_prediction)
     st.subheader("Random Forest Prediction:")
     st.write(rf_result)
     st.write(f"SVM Accuracy: {round((svm_accuracy_scaled * 100), 2)}%")
-
-# Prediksi untuk model Logistic Regression
-if st.button("Predict Logistic Regression"):
-    inputs = [[age, sex, cp, trestbps, restecg, thalach, exang, oldpeak, slope]]
+    #Logistic Regression
     lr_prediction = lr_model.predict(inputs)[0]
     lr_result = get_result(lr_prediction)
     st.subheader("Logistic Regression Prediction:")
     st.write(lr_result)
     st.write(f"Random Forest Accuracy: {round((rf_accuracy * 100), 2)}%")
-
-# Prediksi untuk model Support Vector Machine (SVM)
-if st.button("Predict Support Vector Machine (SVM)"):
-    inputs = [[age, sex, cp, trestbps, restecg, thalach, exang, oldpeak, slope]]
+    #Support Vector Machine
     svm_prediction = svm_model_scaled.predict(inputs)[0]
     svm_result = get_result(svm_prediction)
     st.subheader("SVM Prediction:")
