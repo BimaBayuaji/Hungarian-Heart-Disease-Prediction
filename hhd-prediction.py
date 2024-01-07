@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from imblearn.over_sampling import SMOTE
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
@@ -47,9 +46,10 @@ features = updated_df.drop('num', axis=1)
 target = updated_df['num']
 
 # Oversampling target 0, 2, 3, 4 based on target 1
-oversample = SMOTE(k_neighbors=4)
-X, y = oversample.fit_resample(features, target)
+#oversample = SMOTE(k_neighbors=4)
+#X, y = oversample.fit_resample(features, target)
 
+X, y = (features, target)
 filled_df = X
 filled_df['num'] = y
 
